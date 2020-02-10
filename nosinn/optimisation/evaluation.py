@@ -39,7 +39,7 @@ def log_metrics(
     save_to_csv: Optional[Path] = None,
     check_originals: bool = False,
     feat_attr=False,
-):
+):  # TODO: Check originals is unused. Remove?
     """Compute and log a variety of metrics"""
     model.eval()
     print("Encoding task dataset...")
@@ -114,7 +114,7 @@ def log_metrics(
                 task_train=task_train_data,
                 s_dim=data.s_dim,
                 y_dim=data.y_dim,
-            )
+            )  # TODO: This var, DATA is unused. Remove statement?
 
         # ===========================================================================
 
@@ -159,7 +159,9 @@ def compute_metrics(
     return metrics
 
 
-def fit_classifier(args, input_dim, train_data, train_on_recon, pred_s, test_data=None):
+def fit_classifier(
+    args, input_dim, train_data, train_on_recon, pred_s, test_data=None
+):  # TODO: Traon on recon is not used. Remove?
 
     if args.dataset == "cmnist":
         clf_fn = mp_32x32_net
@@ -311,7 +313,7 @@ def encode_dataset(
     recon: bool,
     subdir: str,
     get_zy: bool = False,
-) -> Dict[str, torch.utils.data.Dataset]:
+) -> Dict[str, torch.utils.data.Dataset]:  # TODO: recon and subdir are unused. Remove?
 
     encodings: Dict[str, List[torch.Tensor]] = {"xy": []}
     if get_zy:
